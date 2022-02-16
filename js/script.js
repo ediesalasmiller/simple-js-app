@@ -16,10 +16,8 @@ let pokemonList = [
     }
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height >0.5){
-        document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + 'Not a tiny pokemon!');
-}else {
-    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ');
+function myLoopFunction(pokemon) {
+    console.log('Name: ' + pokemon.name + ' Height: ' + pokemon.height + ' Type: ' + pokemon.type);
+
 }
-}
+pokemonList.forEach(myLoopFunction)
