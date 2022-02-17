@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-    pokemonList = [
+    let pokemonList = [
         { 
             name: "Squirtle", 
             height: 0.5, 
@@ -17,22 +17,21 @@ let pokemonRepository = (function () {
         }
     ];
 
-        return  {
-            add: function(pokemon) {
-                pokemonList.push(pokemon)
-            },
-            getAll: function() {
-                return pokemonList
-            }
-        };
-    })();
-console.log(pokemonRepository.getAll());
+    return  {
+        add: function(pokemon) {
+            pokemonList.push(pokemon)
+        },
+        getAll: function() {
+            return pokemonList
+        }
+    };
+})();
+
 pokemonRepository.add({ name: 'Bulbasaur', height: 2.4, type: ['grass', 'posion']  });
-console.log(pokemonRepository.getAll());
 
 
-function myLoopFunction(pokemon) {
-    console.log('Name: ' + pokemon.name + ' Height: ' + pokemon.height + ' Type: ' + pokemon.type);
-
+function logPokemon(pokemon) {
+    document.write('Name: ' + pokemon.name + ' Height: ' + pokemon.height + ' Type: ' + pokemon.type);
 }
-pokemonList.forEach(myLoopFunction)
+
+pokemonList.getAll().forEach(logPokemon);
