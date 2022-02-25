@@ -2,6 +2,7 @@ let pokemonRepository = (function () {
     let pokemonList = []; //empty array because we are going to push pokemons from link below to display inside array.
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+    //creating an add function to push pokemon that meet this promise.
     function add(pokemon) {
         if (
             typeof pokemon === "object" &&
@@ -14,7 +15,7 @@ let pokemonRepository = (function () {
         }
     }
      
-    //Calling on getAll() is the only way to access the information in the pokemon repository.
+    //getAll() is the only way to access the information in the pokemon repository.
      function getAll() {
         return pokemonList;
     }
@@ -29,7 +30,7 @@ let pokemonRepository = (function () {
         button.classList.add("button-class");
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
-        
+        //here is the event listener that will open the modal
         button.addEventListener('click', function(event) {
             showDetails(pokemon);
         });
@@ -39,7 +40,7 @@ let pokemonRepository = (function () {
     function loadList() {
         return fetch(apiUrl).then(function (response) {
             return response.json();
-        }).then(function (json) {
+        }).then(function (json) {                       // we need to load the results in JSON as it is a good way to communicate with the servers while we use an external API
             json.results.forEach(function (item) {
                 let pokemon = {
                     name: item.name,
@@ -99,7 +100,7 @@ let pokemonRepository = (function () {
         titleElement.innerText = name;
 
         let heightElement = document.createElement('p');
-        heightElement.innerText = height;
+        heightElement.innerText = 'Height: ' + height;
 
         let imageElement = document.createElement('img');
         imageElement.src = imageUrl;
