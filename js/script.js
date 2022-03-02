@@ -86,31 +86,54 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector('#modal-container');
 
     function showModal(name, height, imageUrl) {
-        modalContainer.innerHTML = '';
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
+        //creating variables to attach to my html bootstrap modal
+        let modalBody = $(".modal-body");
+        let modalTitle = $("modal-title");
+        let modaHeader = $(".modal-header");
+        //empty modal title and body for every time you open it so it doesn't just add to the last one
+        modalTitle.empty();
+        modalBody.empty();
+        //creating element for name in modal
+        let nameElement = $("<h1>" + item.name + "</h1>");
+        //img in modal content
+        let imageElement = $('<img class="modal-img" style="width:50%">');
+        imageElement.attr("src", item.imageUrl);
+        //creating element for height in modal
+        let heightElement = $("<p>" + "height : " + item.height +"</p>");
 
-        //close button
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);
+        modalTitle.append(nameElement);
+        modalBody.append(imageElement);
+        modalBody.append(heightElement);
 
-        let titleElement = document.createElement('h1');
-        titleElement.innerText = name;
 
-        let heightElement = document.createElement('p');
-        heightElement.innerText = 'Height: ' + height;
 
-        let imageElement = document.createElement('img');
-        imageElement.src = imageUrl;
 
-        modal.appendChild(closeButtonElement);
-        modal.appendChild(titleElement);
-        modal.appendChild(heightElement);
-        modal.appendChild(imageElement);
-        modalContainer.appendChild(modal);
-        modalContainer.classList.add('is-visible');
+        //commented out my old modal
+        // modalContainer.innerHTML = '';
+        // let modal = document.createElement('div');
+        // modal.classList.add('modal');
+
+        // //close button
+        // let closeButtonElement = document.createElement('button');
+        // closeButtonElement.classList.add('modal-close');
+        // closeButtonElement.innerText = 'Close';
+        // closeButtonElement.addEventListener('click', hideModal);
+
+        // let titleElement = document.createElement('h1');
+        // titleElement.innerText = name;
+
+        // let heightElement = document.createElement('p');
+        // heightElement.innerText = 'Height: ' + height;
+
+        // let imageElement = document.createElement('img');
+        // imageElement.src = imageUrl;
+
+        // modal.appendChild(closeButtonElement);
+        // modal.appendChild(titleElement);
+        // modal.appendChild(heightElement);
+        // modal.appendChild(imageElement);
+        // modalContainer.appendChild(modal);
+        // modalContainer.classList.add('is-visible');
     }
     
     function hideModal() {
