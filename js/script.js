@@ -1,6 +1,35 @@
 let pokemonRepository = (function () {
     let pokemonList = []; //empty array because we are going to push pokemons from link below to display inside array.
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    
+    // let searchBar = document.getElementById('search');
+
+    // searchBar.addEventListener('keyup', (e) => {
+    //     let searchString= (e.target.value);
+    //     let filteredPokemon = pokemonList.filter((pokemon) => {
+    //        return (
+    //            pokemonList.name.includes(searchString)
+    //        );
+    //     })
+    //     displayPokemon(filteredPokemon)
+    // })
+
+    // let displayPokemon = (pokemon) => {
+    //     let htmlString = pokemon
+    //         .map((pokemon) => {
+    //             return `
+    //             <li class="pokemon-names">
+    //                 <h2>${pokemon.name}</h2>
+    //             </li>
+    //         `;
+    //         })
+    //         .join('');
+    //     pokemonList.innerHTML = htmlString;
+    // };
+    
+
+
+  
 
     //creating an add function to push pokemon that meet this promise.
     function add(pokemon) {
@@ -13,6 +42,7 @@ let pokemonRepository = (function () {
         } else {
             console.log('Pokemon is not valid.'); // if they don't have the qualities in if
         }
+        
     }
      
     //getAll() is the only way to access the information in the pokemon repository.
@@ -53,7 +83,6 @@ let pokemonRepository = (function () {
                 };
                 // add comes from the function we created before.
                 add(pokemon);
-                console.log(pokemon)
             });
             // if there are any errors in the add function we will catch it here.
         }).catch(function (e) {
@@ -81,6 +110,7 @@ let pokemonRepository = (function () {
             console.error(e);
         });
     }
+
 
     let modalContainer = document.querySelector('#modal-container');
     
@@ -124,6 +154,7 @@ let pokemonRepository = (function () {
             hideModal();
         }
     });
+
     // we have to return all our functions! with method : refer to function
     return {
         add: add, 
@@ -131,6 +162,7 @@ let pokemonRepository = (function () {
         addListItem: addListItem,
         loadList: loadList, 
         loadDetails: loadDetails,
+    
     }
 })();
 //end of the IIFE 
