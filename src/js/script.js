@@ -10,9 +10,7 @@ let pokemonRepository = (function () {
             "detailsUrl" in pokemon
         ) {
             pokemonList.push(pokemon); //pushing it into the array
-        } else {
-            console.log('Pokemon is not valid.'); // if they don't have the qualities in if
-        }
+        } 
 
     }
 
