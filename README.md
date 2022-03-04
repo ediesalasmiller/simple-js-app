@@ -4,7 +4,7 @@ Project description:
 
 - Created modals in bootstrap, displaying the name, height, and immage of each pokemon seperately.
 - only an index main page with modals popping up upon selection. 
+including:
 -ES2015
--functioning search bar, code outside of API, to run function upon clicking the search button.
--most CSS is from bootstrap, however I have overwritten some of it.
--added polyfills to provide the modern functionality to older browsers that do not natively support them. 
+-API
+-polyfills for fetch and promise
