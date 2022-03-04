@@ -37,7 +37,7 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
-            showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
+            showModal(pokemon.name, pokemon.height, pokemon.weight, pokemon.imageUrl);
         });
     }
 
@@ -75,6 +75,7 @@ let pokemonRepository = (function () {
             item.height = details.height;
             // types is a variable we are defining. types is in api, you can search for these with command f
             item.types = details.types;
+            item.weight = details.weight;
         }).catch(function (e) {
             console.error(e);
         });
@@ -84,7 +85,7 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector('#modal-container');
 
 
-    function showModal(name, height, imageUrl) {
+    function showModal(name, height, weight, imageUrl) {
         let modalBody = document.querySelector('.modal-body');
         let modalTitle = document.querySelector('.modal-title');
         modalTitle.innerText = '';
@@ -95,6 +96,8 @@ let pokemonRepository = (function () {
         // Show height in modal
         let heightElement = document.createElement('p');
         heightElement.innerText = "Height: " + height;
+        let weightElement = document.createElement('p')
+        weightElement.innerText = "Weight: " + weight;
         // Show image of pokemon in modal
         let imageElement = document.createElement('img');
         imageElement.src = imageUrl;
@@ -102,6 +105,7 @@ let pokemonRepository = (function () {
         modalTitle.append(titleElement);
         modalBody.append(imageElement);
         modalBody.append(heightElement);
+        modalBody.append(weightElement);
     }
 
 
