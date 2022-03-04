@@ -154,6 +154,7 @@ searchButton.addEventListener('click', (e) => {
         pokemonRepository.addListItem(pokemon)
     });
 });
+
     //we need to pass the every new function into this botton that returns the pokemon.
     pokemonRepository.loadList().then(function () { // this the load list addition
         pokemonRepository.getAll().forEach(function (pokemon) { //this is the function that returns our pokemon
